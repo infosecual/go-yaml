@@ -44,6 +44,17 @@ b: c
 	}
 }
 
+func TestUnmarshalOctet(t *testing.T) {
+	yml := `0_`
+	var v struct {
+		A int
+		B string
+	}
+	if err := yaml.Unmarshal([]byte(yml), &v); err != nil {
+		t.Fatalf("%+v", err)
+	}
+}
+
 type marshalTest struct{}
 
 func (t *marshalTest) MarshalYAML() ([]byte, error) {
