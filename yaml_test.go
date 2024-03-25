@@ -45,7 +45,12 @@ b: c
 }
 
 func TestUnmarshalOctet(t *testing.T) {
-	yml := `0_`
+	yml := `
+%YAML 1.2
+---
+a: 1
+b: 0_
+`
 	var v struct {
 		A int
 		B string
